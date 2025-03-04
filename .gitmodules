@@ -1,9 +1,12 @@
 [submodule "Frontend"]
 	path = Frontend
 	url = https://github.com/Heggol/pbuiFrontend
+	branch = main
 [submodule "Backend"]
 	path = Backend
 	url = https://github.com/Heggol/pbuiBackend
+	branch = main
 [submodule "DiscordBot"]
 	path = DiscordBot
 	url = https://github.com/Heggol/pbuibot
+	branch = main
