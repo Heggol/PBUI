@@ -1,0 +1,9 @@
+[submodule "Frontend"]
+	path = Frontend
+	url = https://github.com/Heggol/pbuiFrontend
+[submodule "Backend"]
+	path = Backend
+	url = https://github.com/Heggol/pbuiBackend
+[submodule "DiscordBot"]
+	path = DiscordBot
+	url = https://github.com/Heggol/pbuibot
