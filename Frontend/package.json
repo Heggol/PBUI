@@ -13,7 +13,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@tauri-apps/plugin-fs": "^2.2.0"
+    "@tauri-apps/plugin-fs": "^2.2.0",
+    "dotenv": "^16.4.7",
+    "moons-ta-client": "^1.1.12"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.6",
@@ -21,6 +23,7 @@
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@tauri-apps/api": "^2.3.0",
     "@tauri-apps/cli": "^2",
+    "@types/node": "^22.13.13",
     "autoprefixer": "^10.4.20",
     "svelte": "^5.20.2",
     "svelte-check": "^4.0.0",
