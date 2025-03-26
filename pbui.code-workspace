@@ -1,13 +1,24 @@
 {
 	"folders": [
 		{
-			"path": "/Frontend"
+			"name": "FrontendWebsite",
+			"path": "./Frontend/Website"
 		},
 		{
-			"path": "/Backend"
+			"name": "FrontendTauri",
+			"path": "./Frontend/Tauri"
 		},
 		{
-			"path": "/DiscordBot"
+			"name": "Backend",
+			"path": "./Backend"
+		},
+		{
+			"name": "DiscordBot",
+			"path": "./DiscordBot"
+		},
+		{
+			"name": "Root",
+			"path": "./"
 		}
 	],
 	"settings": {
