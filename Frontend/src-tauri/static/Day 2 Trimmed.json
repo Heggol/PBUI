@@ -1,0 +1,103 @@
+{
+    "playlist_title": "Day 2",
+    "songs": [
+        {
+            "hash": "7BEC6D61AFA08571F62418053C293E5068A35385",
+            "bsr": "3c7c1",
+            "song_name": "MAXIMUS MACHINEGUN",
+            "song_artist": "Laur",
+            "song_mapper": "PogU",
+            "date_uploaded": "2024-05-07",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "AFFABAB8B8577C8D8C511A7046A4451A7338F468",
+            "bsr": "2d64a",
+            "song_name": "WYSI",
+            "song_artist": "Camellia",
+            "song_mapper": "ComplexFrequency",
+            "date_uploaded": "2023-01-01",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "08CDE45CDD09CFD6081D654644E53FB1CAE7ABD6",
+            "bsr": "33168",
+            "song_name": "A.U.M.",
+            "song_artist": "Archspire",
+            "song_mapper": "Jerk",
+            "date_uploaded": "2023-06-12",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "b915cf8a20ae162006cddaf6b1c912b0f3f67abf",
+            "bsr": "3fd6a",
+            "song_name": "Blah!!",
+            "song_artist": "HiTECH NINJA",
+            "song_mapper": "Feco & Andres",
+            "date_uploaded": "2024-08-28",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "9f38cf67323fe8f064d82108bc5db9f97fdb5f26",
+            "bsr": "3c76f",
+            "song_name": "Gate of Hope",
+            "song_artist": "Minstein",
+            "song_mapper": "Aquaflee",
+            "date_uploaded": "2024-05-06",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "9f96d4f625bf50bcabafa51e874e9a9b93b60af7",
+            "bsr": "39c7b",
+            "song_name": "Onus Regulus",
+            "song_artist": "Ludicin",
+            "song_mapper": "cerret",
+            "date_uploaded": "2024-02-07",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "525bd048fe5def3cfe66c986be6c47e0cf242120",
+            "bsr": "4445c",
+            "song_name": "Saishuu Kichiku Imouto Flandre - S",
+            "song_artist": "beatMARIO",
+            "song_mapper": "Komeijisan051",
+            "date_uploaded": "2025-02-14",
+            "difficulties": [
+                {
+                    "name": "Expert",
+                    "characteristic": "Standard"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+  "playlist_title": "finals",
+  "songs": [
+    {
+      "hash": "76a2f7b11cb2734c3de361b0965703347310f38c",
+      "bsr": "345b9",
+      "song_name": "GALAXY BURST",
+      "song_artist": "Camellia",
+      "song_mapper": "RetrX",
+      "date_uploaded": "2023-07-25",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "a3428be74a1ed30c4e51a9ea31127e2b6cc504db",
+      "bsr": "3b87e",
+      "song_name": "Saviour Of Speedcore",
+      "song_artist": "XH",
+      "song_mapper": "VoltageO & Aquaflee",
+      "date_uploaded": "2024-04-05",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "b4617bd06e5f73a0e1bfb7affae81cfce9c725cc",
+      "bsr": "41711",
+      "song_name": "The Silent Life",
+      "song_artist": "Rivers of Nihil",
+      "song_mapper": "Tranch",
+      "date_uploaded": "2024-11-06",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "741e7c70ef2c1207aa39c68bed6fb62d256335d0",
+      "bsr": "41cfe",
+      "song_name": "AM-7",
+      "song_artist": "Filthy",
+      "song_mapper": "VoltageO",
+      "date_uploaded": "2024-11-21",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "21387BC9F224EFAB18D72BFF575E5F086DA7FE3B",
+      "bsr": "16e93",
+      "song_name": "Rainbow Freeze",
+      "song_artist": "Kobaryo",
+      "song_mapper": "ComplexFrequency",
+      "date_uploaded": "2021-04-19",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "D24E4D957B0C756233E4DB912A478A47682CCDB7",
+      "bsr": "26399",
+      "song_name": "Reverie on the Onyx",
+      "song_artist": "Archspire",
+      "song_mapper": "ThySpoon",
+      "date_uploaded": "2022-05-31",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "7b0fc9759ca1d09555bbd1beefde2c1ceb200bc7",
+      "bsr": "421c8",
+      "song_name": "Fallen. ∀NGEL",
+      "song_artist": "Xeven vs. Odin",
+      "song_mapper": "miserable cs2 players",
+      "date_uploaded": "2024-12-03",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    }
+  ]
+}

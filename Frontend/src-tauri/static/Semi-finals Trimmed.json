@@ -1,0 +1,103 @@
+{
+  "playlist_title": "Semi-finals",
+  "songs": [
+    {
+      "hash": "7bee181831fcf9c0e437abb454390999235c7c77",
+      "bsr": "4119f",
+      "song_name": "Upload Your Mind :: Download My Soul",
+      "song_artist": "Camellia",
+      "song_mapper": "RetrX",
+      "date_uploaded": "2024-10-24",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "223ee91b08182b96e96168a096a9085ac0bd816c",
+      "bsr": "431c0",
+      "song_name": "Transceiver FX",
+      "song_artist": "Kobaryo",
+      "song_mapper": "Voytech",
+      "date_uploaded": "2025-01-11",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "b2ca2424d3a2596889d727cd900613e907a79209",
+      "bsr": "4310b",
+      "song_name": "Into The Light",
+      "song_artist": "lapix",
+      "song_mapper": "Feco, Dereknalox123, The_Editor",
+      "date_uploaded": "2025-01-10",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "8C6925A94206BBA92043387FAFFDFC97D9C2FB52",
+      "bsr": "32180",
+      "song_name": "Unlock the Blacksky",
+      "song_artist": "Kobaryo",
+      "song_mapper": "FentonVR",
+      "date_uploaded": "2023-05-04",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "292f2ba890d3525ba2e812cf7222605e3f6f8565",
+      "bsr": "3ce4c",
+      "song_name": "Mourning Hymn",
+      "song_artist": "Chelsea Grin",
+      "song_mapper": "dake the mapper",
+      "date_uploaded": "2024-05-23",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "46ce44063c0a98557cf2abd0afe9f565982e7065",
+      "bsr": "3b341",
+      "song_name": "-Totsuka no Tsurugi-",
+      "song_artist": "5KiLOBYTE vs. Raphiiel",
+      "song_mapper": "Anammelech & Excess10n",
+      "date_uploaded": "2024-03-25",
+      "difficulties": [
+        {
+          "name": "Expert+",
+          "characteristic": "Standard"
+        }
+      ]
+    },
+    {
+      "hash": "47ac647eedab11817111241306c8497f8baf34cc",
+      "bsr": "444b5",
+      "song_name": "Ultrasonic Anthem",
+      "song_artist": "t+pazolite",
+      "song_mapper": "Slayx, Voytech & Aqua",
+      "date_uploaded": "2025-02-15",
+      "difficulties": [
+        {
+          "name": "Expert",
+          "characteristic": "Standard"
+        }
+      ]
+    }
+  ]
+}

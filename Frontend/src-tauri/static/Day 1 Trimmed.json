@@ -1,0 +1,103 @@
+{
+    "playlist_title": "Day 1",
+    "songs": [
+        {
+            "hash": "a430fd3b307d304ba36b9dff6cd28c923a1fa315",
+            "bsr": "25747",
+            "song_name": "Archangel",
+            "song_artist": "Sakuzyo",
+            "song_mapper": "Helloiamdaan",
+            "date_uploaded": "2022-05-10",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "7f4aea956b5317f496992bc855ef77a1ea583d10",
+            "bsr": "3725c",
+            "song_name": "ULTRA HAPPY MEGAMIX",
+            "song_artist": "DJ Genki",
+            "song_mapper": "RetrX",
+            "date_uploaded": "2023-11-13",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "CCD0882322CE18086923D927E67ABE95AC745D16",
+            "bsr": "1d2ef",
+            "song_name": "Night of Nights",
+            "song_artist": "RichaadEB",
+            "song_mapper": "Joshabi & Aquaflee",
+            "date_uploaded": "2021-10-17",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "81533a1ff7d130bea9942a85a173c84c7d68c5ad",
+            "bsr": "3b496",
+            "song_name": "Petting Zoo Justice",
+            "song_artist": "Dance Gavin Dance",
+            "song_mapper": "Aquaflee",
+            "date_uploaded": "2024-03-28",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "4a12f1df236e157811adcc53b3c9267b9a218350",
+            "bsr": "406b7",
+            "song_name": "Native Faith",
+            "song_artist": "ZUN",
+            "song_mapper": "zeon",
+            "date_uploaded": "2024-09-23",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "f2775bfc7a1b6d992df5a2b2d11b8cc025f0bbc0",
+            "bsr": "3de24",
+            "song_name": "Sqlupp",
+            "song_artist": "owl*tree",
+            "song_mapper": "RetrX",
+            "date_uploaded": "2024-06-23",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        },
+        {
+            "hash": "48D448C7296FAB28EC198C9529770D16D4C990CC",
+            "bsr": "34796",
+            "song_name": "Bouquet with Hatred & Ugliness",
+            "song_artist": "t+pazolite",
+            "song_mapper": "cerret",
+            "date_uploaded": "2023-07-28",
+            "difficulties": [
+                {
+                    "name": "Expert+",
+                    "characteristic": "Standard"
+                }
+            ]
+        }
+    ]
+}

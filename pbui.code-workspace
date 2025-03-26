@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "/Frontend"
+		},
+		{
+			"path": "/Backend"
+		},
+		{
+			"path": "/DiscordBot"
+		}
+	],
+	"settings": {
+		"svelte.enable-ts-plugin": true
+	}
+}
