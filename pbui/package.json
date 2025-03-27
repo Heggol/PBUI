@@ -1,6 +1,6 @@
 {
   "name": "pbui-package",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This is the NPM package for Heggo's & Ultraslayyy's PB app/site for aid in Beat Saber Tournaments",
   "license": "MIT",
   "author": "Heggo, Ultraslayyy",
