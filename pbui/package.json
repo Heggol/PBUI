@@ -1,0 +1,23 @@
+{
+  "name": "pbui-package",
+  "version": "0.0.1",
+  "description": "This is the NPM package for Heggo's & Ultraslayyy's PB app/site for aid in Beat Saber Tournaments",
+  "license": "MIT",
+  "author": "Heggo, Ultraslayyy",
+  "type": "module",
+  "types": "index.d.ts",
+  "main": "index.cjs.js",
+  "exports": {
+    "import": {
+      "types": "./index.d.ts",
+      "default": "./index.mjs.js"
+    },
+    "require": {
+      "types": "./index.d.ts",
+      "default": "./index.cjs.js"
+    }
+  },
+  "dependencies": {
+    "socket.io-client": "^4.8.1"
+  }
+}
