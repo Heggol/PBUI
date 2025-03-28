@@ -1,6 +1,6 @@
 # pbui-client (PBUI npm package)
 
-[![npm version](https://img.shields.io/npm/v/pbui-client)](https://www.npmjs.com/package/pbui-client)
+[![NPM version](https://badge.fury.io/js/pbui-client.svg)](https://www.npmjs.com/package/pbui-client)
 ![Downloads](http://img.shields.io/npm/dm/pbui-client.svg?style=flat)
 
 This is a WIP package for our PBUI tool for Beat Saber, created by Heggo and Ultraslayyy.
