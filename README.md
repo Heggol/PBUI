@@ -1,6 +1,6 @@
 # pbui-client (PBUI npm package)
-This is a WIP package for our PBUI tool for Beat Saber, created by Heggo and Ultraslayyy.
-you may find this package on [npm](https://www.npmjs.com/package/pbui-client).
+[![npm version](https://img.shields.io/npm/v/pbui-client)](https://www.npmjs.com/package/pbui-client) <br>
+This is a WIP package for our PBUI tool for Beat Saber, created by Heggo and Ultraslayyy. <br>
 To install this package, run the command
 `npm i pbui-client`
 in the CLI of your choosing
