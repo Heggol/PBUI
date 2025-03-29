@@ -17,19 +17,34 @@ class PBUI {
         if (url) {
             this.setApiBase(url);
         }
-
         this.connecting = true;
-        this.connectionPromise = new Promise(async (resolve, reject) => {
-            if (this.socket) {
-                console.warn('[PBUI] Already connected to a WebSocket. Disconnecting first...');
-                this.manualDisconnect = true;
-                await this.disconnect();
-            }
+        try {
+            await this._disconnectIfConnected();
+            await this._establishConnection(options);
+            this._startHeartbeat();
+        } catch (error) {
+            console.error('[PBUI] Connection failed:', error);
+            this._reconnect();
+        }
 
+        this._setupEventHandlers();
+        return this.connectionPromise;
+    }
+
+    async _disconnectIfConnected() {
+        if (this.socket) {
+            console.warn('[PBUI] Already connected to a WebSocket. Disconnecting first...');
+            this.manualDisconnect = true;
+            await this.disconnect();
+        }
+    }
+
+    async _establishConnection(options) {
+        return new Promise((resolve, reject) => {
             this.socket = io(this.apiBaseURL, {
                 transports: ['websocket'],
                 secure: true,
-                rejectUnauthorized: false,
+                rejectUnauthorized: process.env.NODE_ENV === 'development' ? false : true,
                 reconnection: false,
                 timeout: 5000,
                 ...options
@@ -39,52 +54,50 @@ class PBUI {
                 console.log(`[PBUI] Connected to WebSocket: ${this.apiBaseURL}`);
                 this.connecting = false;
                 this.reconnectionAttempts = 0;
-                this.startHeatbeat();
+                this._startHeartbeat();
                 resolve();
             });
 
             this.socket.once('connect_error', (error) => {
-                console.warn(`[PBUI] Connection Error: ${error}`);
-                if (!this.connecting) {
-                    this.reconnect(this.apiBaseURL);
-                }
-                reject(error);
+                const errorMsg = error.message || 'Unknown error';
+                console.warn(`[PBUI] Connection failed: ${errorMsg}`);
+                reject(new Error(`Connection failed: ${errorMsg}`));
             });
-        });
-
-        this.setupEventHandlers();
-        return this.connectionPromise;
+        })
     }
 
-    async ensureConnected() {
+    async _ensureConnected() {
         if (this.connecting) await this.connectionPromise;
         if (!this.socket.connected) throw new Error('[PBUI] Websocket not connected. Call connect() first.');
     }
 
-    setupEventHandlers() {
+    _setupEventHandlers() {
         if (!this.socket) return;
 
-        this.socket.on('disconnect', (reason) => {
+        const socket = this.socket;
+
+        socket.on('disconnect', (reason) => {
             console.warn(`[PBUI] Disconnected: ${reason}`);
-            this.cleanupSocket();
+            this._cleanupSocket();
             if (!this.manualDisconnect) {
-                this.reconnect(this.apiBaseURL);
+                this._reconnect(this.apiBaseURL);
             } else {
                 this.manualDisconnect = false;
             }
         });
 
-        this.socket.on('initial-state', (data) => {
-            this.triggerListeners('initial-state', data);
+        socket.on('initial-state', (data) => {
+            this._triggerListeners('initial-state', data);
         });
 
-        this.socket.on('state-updated', (data) => {
-            this.triggerListeners('state-updated', data);
+        socket.on('state-updated', (data) => {
+            this._triggerListeners('state-updated', data);
         })
     }
 
-    startHeatbeat() {
-        this.stopHeartbeat();
+    _startHeartbeat() {
+        if (this.heartbeatInterval) return;
+        this._stopHeartbeat();
         this.heartbeatInterval = setInterval(() => {
             if (this.socket?.connected) {
                 this.socket.emit('ping');
@@ -92,27 +105,30 @@ class PBUI {
         }, 30000);
     }
 
-    stopHeartbeat() {
+    _stopHeartbeat() {
         if (this.heartbeatInterval) {
             clearInterval(this.heartbeatInterval);
             this.heartbeatInterval = null;
         }
     }
 
-    reconnect() {
+    _reconnect() {
         if (this.reconnectionAttempts >= 10 || this.connecting) {
             console.error('[PBUI] Max reconnection attempts reached or already reconnecting.');
             return;
         }
         this.connecting = true;
-
-        let delay = Math.min(1000 * (2 ** this.reconnectionAttempts), 30000);
+        let delay = Math.min(1000 * (2 ** this.reconnectionAttempts), 10000);
         this.reconnectionAttempts++;
 
         console.log(`[PBUI] Reconnecting in ${delay / 1000} seconds...`);
+
         setTimeout(() => {
-            this.connect(this.apiBaseURL).finally(() => { this.connecting = false; });
-        }), delay;
+            this.connect(this.apiBaseURL).catch((error) => {
+                console.error('[PBUI] Reconnection failed:', error);
+                this.connecting = false;
+            });
+        }, delay);
     }
 
     async disconnect() {
@@ -122,11 +138,11 @@ class PBUI {
         }
 
         this.manualDisconnect = true;
+        this._stopHeartbeat();
 
-        this.stopHeartbeat();
         return new Promise((resolve) => {
             this.socket.once('disconnect', () => {
-                this.cleanupSocket();
+                this._cleanupSocket();
                 console.log('[PBUI] WebSocket fully disconnected.');
                 resolve();
             });
@@ -134,16 +150,17 @@ class PBUI {
         })
     }
 
-    cleanupSocket() {
+    _cleanupSocket() {
         if (this.socket) {
             this.socket.off();
             this.socket.disconnect();
             this.socket = null;
         }
+        this._stopHeartbeat();
     }
 
     async on(event, callback) {
-        await this.ensureConnected();
+        await this._ensureConnected();
 
         if (!this.socket) {
             console.error('[PBUI] Not connected to WebSocket.');
@@ -153,7 +170,7 @@ class PBUI {
     }
 
     async send(event, data) {
-        await this.ensureConnected();
+        await this._ensureConnected();
 
         if (!this.socket) {
             console.error('[PBUI] Not connected to WebSocket.');
@@ -163,7 +180,7 @@ class PBUI {
     }
 
     async subscribe(event, listener) {
-        await this.ensureConnected();
+        await this._ensureConnected();
 
         if (!this.listeners[event]) {
             this.listeners[event] = [];
@@ -172,16 +189,41 @@ class PBUI {
         if (!this.listeners[event].includes(listener)) {
             this.listeners[event].push(listener);
             console.log(`[PBUI] Subscribed to event: ${event}`);
+        } else {
+            console.log(`[PBUI] Listener already subscribed to event: ${event}`);
         }
     }
 
-    triggerListeners(event, data) {
+    async unsubscribe(event, listener) {
+        await this._ensureConnected();
+
+        if (!this.listeners[event]) {
+            console.warn(`[PBUI] No listeners to remove for event: ${event}`);
+            return;
+        }
+
+        const index = this.listeners[event].indexOf(listener);
+
+        if (index === -1) {
+            console.warn(`[PBUI] Listener not found for event: ${event}`);
+            return;
+        }
+
+        this.listeners[event].splice(index, 1);
+        console.log(`[PBUI] Unsubscribed from event: ${event}`);
+    }
+
+    _triggerListeners(event, data) {
         if (this.listeners[event]) {
-            this.listeners[event].forEach(listener => listener(data));
+            this.listeners[event].forEach(listener => listener(data.json()));
         }
     }
 
     setApiBase(url) {
+        if (!url) {
+            console.error('[PBUI] URL not provided to set as ApiBase.');
+            return;
+        }
         this.apiBaseURL = url;
     }
 }
@@ -194,8 +236,8 @@ class PBUIState {
         this.defaultHeaders = { 'Content-Type': 'application/json' };
     }
 
-    internalUpdate(key, value) {
-        if (!this.valueEqual(this.data[key], value)) {
+    _internalUpdate(key, value) {
+        if (!this._valueEqual(this.data[key], value)) {
             this.data[key] = value;
             if (this.listeners[key]) {
                 this.listeners[key].forEach(callback => callback(value));
@@ -203,7 +245,7 @@ class PBUIState {
         }
     }
 
-    valueEqual(obj1, obj2) {
+    _valueEqual(obj1, obj2) {
         if (obj1 === obj2) return true;
         if (!obj1 || !obj2 || typeof obj1 !== 'object' || typeof obj2 !== 'object') return obj1 === obj2;
 
@@ -215,7 +257,7 @@ class PBUIState {
         for (let key of keys1) {
             if (!keys2.includes(key)) return false;
 
-            if (!this.valueEqual(obj1[key], obj2[key])) return false;
+            if (!this._valueEqual(obj1[key], obj2[key])) return false;
         }
 
         return true;
@@ -230,7 +272,6 @@ class PBUIState {
         };
 
         try {
-            console.log(url, options);
             const response = await fetch(url, options);
             if (!response.ok) {
                 throw new Error(`[PBUI] HTTP error! Status: ${response.status}`);
@@ -242,14 +283,17 @@ class PBUIState {
         }
     }
 
-    async get(key = 'state') {
+    async get(key = 'state', forceFetch = true) {
         if (key === 'state') {
-            console.log('[PBUI] Fetching state...');
-            const data = await this.fetchData('/state');
-            this.internalUpdate(key, data);
-            console.log(`[PBUI] State fetched:`, data);
-            return data;
+            if (!this.data[key] || forceFetch) {
+                console.log('[PBUI] Fetching state...');
+                const data = await this.fetchData('/state');
+                console.log(`[PBUI] State fetched:`, data)
+                this._internalUpdate(key, data);
+            }
+            return this.data[key];
         }
+
         return this.data[key];
     }
 

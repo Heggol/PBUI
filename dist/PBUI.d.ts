@@ -11,6 +11,7 @@ export declare class PBUI {
 
     connect(url?: string, options?: { transports?: string[]; secure?: boolean; timeout?: number }): Promise<void>;
     subscribe(event: string, listener: (data: any) => void): Promise<void>;
+    unsubscribe(event: string, listener: (data: any) => void): Promise<void>;
     disconnect(): Promise<void>;
     on(event: string, callback: (data: any) => void): void;
     send(event: string, data:any): void;
