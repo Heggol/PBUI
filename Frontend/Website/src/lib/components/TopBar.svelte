@@ -70,10 +70,14 @@
         display: flex;
         align-items: center;
         background-color: var(--surface-alt-color);
+        transition:
+            box-shadow 0.3s ease,
+            backdrop-filter 0.3s ease;
     }
     header.scrolled {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(20px);
+        background-color: rgba(var(--surface-alt-color), 0.8);
     }
     .container {
         width: 100%;
@@ -82,27 +86,39 @@
         padding: 0 1.5rem;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: center; 
+        gap: 1rem;
+        position: relative;
     }
 
     .statusIndicator {
-        width: 150px;
+        flex-shrink: 0;
         height: 50px;
-        border-radius: 50%;
-        border-color: var(--primary-color);
+        border: 1px solid var(--primary-color);
         color: var(--text-primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+        border-radius: 0.5rem;
         z-index: 101;
+        text-align: center;
     }
 
     nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
         align-items: center;
     }
 
+
     nav ul {
         display: flex;
-        gap: 2.5rem;
+        gap: 0.5rem;
         list-style: none;
+        align-items: center;
         padding: 0;
         margin: 0;
     }
@@ -111,26 +127,39 @@
         color: var(--text-secondary-color);
         text-decoration: none;
         font-weight: 600;
-        position: relative;
-    }
-    
-    nav a:hover, nav a.active {
-        color: var(--text-primary-color);
+        text-align: center;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        transition:
+            color 0.2s ease,
+            background-color 0.2s ease;
+        white-space: nowrap;
     }
 
-    nav a.active::after {
-        border-radius: 2rem;
-        border-color: var(--primary-color);
+    nav a:hover {
+        color: var(--text-primary-color);
+        background-color: var(--surface-hover-color);
+        border: 1px solid var(--primary-color);
+        box-shadow: 0 0 8px var(--primary-color);
+        transition: all 0.2s ease;
+    }
+    nav a.active {
+        color: var(--text-primary-color);
+        background-color: var(
+            --surface-hover-color
+        );
     }
 
     .theme-toggle {
+        flex-shrink: 0;
         display: flex;
         align-items: center;
         border: none;
         cursor: pointer;
         background: none;
         color: var(--text-primary-color);
-        border-radius: 1rem;
+        padding: 0.5rem;
+        border-radius: 50%;
         transition: background-color 0.25s ease;
     }
 

@@ -41,4 +41,19 @@
 		margin: 0 auto;
 		padding: 0 1.5rem;
 	}
+	.copyright {
+		text-align: center;
+		width: 100%;
+        max-width: 1200px;
+        height: 20%;
+        max-height: 20%;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+	}
+	footer {
+		color: var(--text-primary-color);
+		padding: 2rem 0 1rem;
+        background-color: var(--surface-alt-color);
+		
+	}
 </style>
